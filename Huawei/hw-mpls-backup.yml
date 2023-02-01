@@ -1,0 +1,26 @@
+---
+## Backup Configuration for Huawei Router by Ican
+
+
+- name: "Backup Huawei Router"
+  hosts: hw-mpls
+  gather_facts: no
+
+  tasks:
+
+  - name: "Backup Config"
+    community.network.ce_command:
+      commands:
+        - display current
+    register: runnconfig
+#  - debug:
+#      var: version.stdout_lines
+
+  - name: "Parsing Backup"
+    copy:
+      content: "{{ runnconfig.stdout[0] }}"
+      dest: "/home/ansible/Config/config-{{ inventory_hostname }}.txt"
+      
+      
+      
+      
