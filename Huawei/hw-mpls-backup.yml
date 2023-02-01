@@ -9,7 +9,7 @@
   tasks:
 
   - name: "Backup Config"
-    community.network.ce_command:
+    ce_command:
       commands:
         - display current
     register: runnconfig
