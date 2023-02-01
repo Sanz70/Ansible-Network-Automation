@@ -4,7 +4,7 @@
 
 - name: "Backup Huawei Router"
   hosts: all
-  collection: ansible.netcommon.network_cli
+  collections: ansible.netcommon.network_cli
   network_os: community.network.ce
   gather_facts: no
 
