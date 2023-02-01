@@ -1,11 +1,15 @@
 ---
 ## Backup Configuration for Huawei Router by Ican
 
-
 - name: "Backup Huawei Router"
   hosts: all
   collections: ansible.netcommon.network_cli
   gather_facts: no
+  
+  vars:
+   network_os: community.network.ce
+   ssh_port: 2222
+   transport: cli
 
   tasks:
   - name: "Backup Config"
