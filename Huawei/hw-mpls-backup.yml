@@ -3,7 +3,7 @@
 
 
 - name: "Backup Huawei Router"
-  hosts: hw-mpls
+  hosts: all
   collection: ansible.netcommon.network_cli
   network_os: community.network.ce
   gather_facts: no
