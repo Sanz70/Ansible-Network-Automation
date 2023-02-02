@@ -1,6 +1,6 @@
 ---
 - name: Sanz Automation
-  hosts: junos-gw
+  hosts: all
   gather_facts: no
 
   tasks:
@@ -12,7 +12,7 @@
       backup_options:
            backup_format: "text"
            filename: config-{{ inventory_hostname }}.txt
-           dir_path: /home/ansible/Config/gateway
+           dir_path: /home/sysmin/config/gateway
 #    register: runnconfig
 #  - debug:
 #      var: version.stdout_lines
