@@ -1,0 +1,23 @@
+---
+- name: Sanz Automation
+  hosts: ixr-mpls
+  gather_facts: no
+
+  tasks:
+
+  - name: "IOS XR Backup Config"
+    cisco.iosxr.iosxr_config:
+      config: running-config
+#        - display curr
+      backup: yes
+      backup_options:
+           filename: config-{{ inventory_hostname }}.txt
+           dir_path: /home/ansible/Config/mpls
+#    register: runnconfig
+#  - debug:
+#      var: version.stdout_lines
+
+#  - name: "Parsing Backup"
+#    copy:
+#      content: "{{ runnconfig.stdout[0] }}"
+#      dest: "/home/ansible/Config/config-{{ inventory_hostname }}.txt"

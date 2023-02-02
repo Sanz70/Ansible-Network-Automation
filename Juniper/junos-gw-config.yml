@@ -1,0 +1,23 @@
+---
+- name: Sanz Automation
+  hosts: junos-gw
+  gather_facts: no
+
+  tasks:
+
+  - name: "Junos Backup Config"
+    junipernetworks.junos.junos_config:
+#      config: running-config
+      backup: yes
+      backup_options:
+           backup_format: "text"
+           filename: config-{{ inventory_hostname }}.txt
+           dir_path: /home/ansible/Config/gateway
+#    register: runnconfig
+#  - debug:
+#      var: version.stdout_lines
+
+#  - name: "Parsing Backup"
+#    copy:
+#      content: "{{ runnconfig.stdout[0] }}"
+#      dest: "/home/ansible/Config/config-{{ inventory_hostname }}.txt"

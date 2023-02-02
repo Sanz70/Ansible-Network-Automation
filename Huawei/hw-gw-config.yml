@@ -1,0 +1,19 @@
+---
+- name: Sanz Automation
+  hosts: hw-gw
+  gather_facts: no
+
+  tasks:
+
+  - name: "Huawei Backup Config"
+    community.network.ce_command:
+      commands:
+        - display curr
+    register: runnconfig
+#  - debug:
+#      var: version.stdout_lines
+
+  - name: "Parsing Backup"
+    copy:
+      content: "{{ runnconfig.stdout[0] }}"
+      dest: "/home/ansible/Config/gateway/config-{{ inventory_hostname }}.txt"

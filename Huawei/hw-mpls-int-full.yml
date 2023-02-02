@@ -1,0 +1,19 @@
+---
+- name: Sanz Automation
+  hosts: AG00-ISP-JKT-TBETDC
+  gather_facts: no
+
+  tasks:
+
+  - name: "Huawei Backup Config"
+    community.network.ce_command:
+      commands:
+        - display int bri main | i 80
+        - display int bri main | i 82
+    register: utility
+  - debug:
+      var: utility.stdout_lines
+
+#  - name: "Check Utility 85%"
+#      content: "{{ utility.stdout[0] }}"
+#      dest: "/home/ansible/util/util-{{ inventory_hostname }}.txt"
