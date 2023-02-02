@@ -1,6 +1,6 @@
 ---
 - name: Sanz Automation
-  hosts: hw-mpls
+  hosts: all
   gather_facts: no
 
   tasks:
