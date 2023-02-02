@@ -16,4 +16,4 @@
   - name: "Parsing Backup"
     copy:
       content: "{{ runnconfig.stdout[0] }}"
-      dest: "/home/ansible/Config/config-{{ inventory_hostname }}.txt"
+      dest: "/home/sysmin/config/mpls/config-{{ inventory_hostname }}.txt"
