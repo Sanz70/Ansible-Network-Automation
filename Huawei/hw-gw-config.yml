@@ -8,7 +8,7 @@
   - name: "Huawei Backup Config"
     community.network.ce_command:
       commands:
-        - display curr
+        - display current
     register: runnconfig
 #  - debug:
 #      var: version.stdout_lines
