@@ -1,6 +1,6 @@
 ---
 - name: Sanz Automation
-  hosts: hw-gw
+  hosts: all
   gather_facts: no
 
   tasks:
@@ -16,4 +16,4 @@
   - name: "Parsing Backup"
     copy:
       content: "{{ runnconfig.stdout[0] }}"
-      dest: "/home/ansible/Config/gateway/config-{{ inventory_hostname }}.txt"
+      dest: "/home/sysmin/config/gateway/config-{{ inventory_hostname }}.txt"
