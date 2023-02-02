@@ -3,13 +3,13 @@
 
 - name: "Backup Huawei Router"
   hosts: all
-  collections: ansible.netcommon.network_cli
+#  collections: ansible.netcommon.network_cli
   gather_facts: no
   
-  vars:
-   network_os: community.network.ce
-   ssh_port: 2222
-   transport: cli
+#  vars:
+#   network_os: community.network.ce
+#   ssh_port: 2222
+#   transport: cli
 
   tasks:
   - name: "Backup Config"
@@ -23,7 +23,7 @@
   - name: "Parsing Backup"
     copy:
       content: "{{ runnconfig.stdout[0] }}"
-      dest: "/home/ansible/Config/config-{{ inventory_hostname }}.txt"
+      dest: "/home/sysmin/config/config-{{ inventory_hostname }}.txt"
       
       
       
